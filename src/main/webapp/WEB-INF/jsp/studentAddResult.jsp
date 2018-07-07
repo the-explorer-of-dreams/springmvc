@@ -26,9 +26,43 @@
             </tr>
 
             <tr>
+                <td>密码:</td>
+                <td>${password}</td>
+            </tr>
+            <tr>
+                <td>地址:</td>
+                <td>${address}</td>
+            </tr>
+
+            <tr>
+                <td>是否男生:</td>
+                <td>${male}</td>
+            </tr>
+
+            <tr>
+                <td>喜欢的框架:</td>
+                <td>
+                    <c:forEach items="${faveriteFrameworks}" var="framework">
+                        <c:out value="${framework}" />
+                    </c:forEach>
+                </td>
+            </tr>
+
+            <tr>
+                <td>性别:</td>
+                <td>${(gender == "M" ? "男" : "女" )}</td>
+            </tr>
+
+            <tr>
+                <td>喜欢的数字:</td>
+                <td>${faveriteNumber}</td>
+            </tr>
+
+            <tr>
                 <td>编码:</td>
                 <td>${id}</td>
             </tr>
+
 
         </table>
 </body>
