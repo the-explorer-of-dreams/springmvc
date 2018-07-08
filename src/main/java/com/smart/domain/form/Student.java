@@ -1,5 +1,10 @@
 package com.smart.domain.form;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 public class Student{
     private Integer id;
     private Integer age;
@@ -7,9 +12,22 @@ public class Student{
     private String password;
     private String address;
     private boolean male;
-    private String[] faveriteFrameworks;
+    private Set<String> faveriteFrameworks;
     private String gender;
     private String favoriteNumber;
+    private Map<String,String> countries;
+
+    //single entity
+//    private Country country;
+//
+//    public Country getCountry() {
+//        return country;
+//    }
+//
+//    public void setCountry(Country country) {
+//        this.country = country;
+//    }
+
 
     public Integer getId() {
         return id;
@@ -59,11 +77,11 @@ public class Student{
         this.male = male;
     }
 
-    public String[] getFaveriteFrameworks() {
+    public Set<String> getFaveriteFrameworks() {
         return faveriteFrameworks;
     }
 
-    public void setFaveriteFrameworks(String[] faveriteFrameworks) {
+    public void setFaveriteFrameworks(Set<String> faveriteFrameworks) {
         this.faveriteFrameworks = faveriteFrameworks;
     }
 
@@ -81,6 +99,14 @@ public class Student{
 
     public void setFavoriteNumber(String favoriteNumber) {
         this.favoriteNumber = favoriteNumber;
+    }
+
+    public Map<String, String> getCountries() {
+        return countries;
+    }
+
+    public void setCountries(Map<String, String> countries) {
+        this.countries = countries;
     }
 
     @Override

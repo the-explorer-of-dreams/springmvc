@@ -3,8 +3,6 @@ package com.smart.web.form;
 import com.smart.domain.form.Country;
 import com.smart.domain.form.Student;
 import com.smart.domain.form.StudentVo;
-import org.eclipse.jetty.util.ArrayQueue;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,41 +14,37 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/formHandle")
-public class StudentController {
+public class DirectBindingController {
 
-    @RequestMapping(value = "/student",method = RequestMethod.GET)
-    public ModelAndView student(){
+    @RequestMapping(value = "/directBinding",method = RequestMethod.GET)
+    public ModelAndView getDirectBinding(){
         ModelAndView mav =  new ModelAndView();
-        mav.setViewName("student");
+        mav.setViewName("directBinding");
         Student student = new Student();
-        student.setMale(true);
-        student.setGender("M");
-//        String[] framworksArray = {"Spring Boot","Apache Hadoop"};
-        Set<String> framworks = new HashSet<String>();
-        framworks.add("Apache Hadoop");
-        framworks.add("Spring MVC");
-        student.setFaveriteFrameworks(framworks);
-        student.setFavoriteNumber("3");
-//        Country SG = new Country(3,"Singapore","SG");
-//        student.setCountry(SG);
-
-//        List<Country> countries = new ArrayList<Country>();
-//        Country SG = new Country(3,"Singapore","SG");
-//        Country US = new Country(1,"United States","US");
-//        countries.add(SG);
-//        countries.add(US);
-//
-//        student.setCountries(countries);
-
         mav.addObject("command",student);
         return mav;
     }
 
-    @RequestMapping(value="/addStudent",method = RequestMethod.POST)
-    public ModelAndView addStudent(@ModelAttribute("student") Student student){
-        ModelAndView mav =  new ModelAndView();
-        mav.setViewName("studentAddResult");
+    @RequestMapping(value="/doDirectBinding",method = RequestMethod.POST)
+    public ModelAndView doDirectBinding(
+           @ModelAttribute("name") String name,
+         @RequestParam("age")  Integer accurateAge,
+            String password,
+            String address,
+            Boolean male,
+            String[] faveriteFrameworks,
+           @ModelAttribute("student") Student student
 
+    ){
+        ModelAndView mav =  new ModelAndView();
+
+        mav.setViewName("doDirectBinding");
+//        mav.addObject("name",name);
+        mav.addObject("accurateAge",accurateAge);
+        mav.addObject("password",password);
+        mav.addObject("address",address);
+        mav.addObject("male",male);
+        mav.addObject("faveriteFrameworks",faveriteFrameworks);
         return mav;
     }
 

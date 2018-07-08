@@ -13,8 +13,8 @@
     <title>SpringMVC 表单处理</title>
 </head>
 <body>
-     <h2>Student Information</h2>
-     <c:url var="post_url"  value="/formHandle/addStudent" />
+     <h2>directBinding Information</h2>
+     <c:url var="post_url"  value="/formHandle/doDirectBinding" />
     <form:form method="post" action="${post_url}" >
         <table>
             <tr>
@@ -64,7 +64,7 @@
             </tr>
 
             <tr>
-                <td><form:label path="countries[CH]" >国家:</form:label></td>
+                <td><form:label path="countries" >国家:</form:label></td>
                 <%--<td><form:select path="country" items="${countriesList}"/></td>--%>
                 <%--<td>--%>
                     <%--<form:select path="country.briefName">--%>
@@ -74,8 +74,8 @@
 
                 <td>
                     <%--<form:select path="country.briefName" id="country"  items="${countryEntitiesList}" itemLabel="name" itemValue="briefName"/>--%>
-                <form:select path="countries[CH]" multiple="true">
-                    <form:options items="${countryEntitiesList}"  itemLabel="name" itemValue="briefName"/>
+                <form:select path="countries" multiple="true">
+                    <form:options items="${countryEntitiesList}"  itemLabel="name" itemValue="briefName" tabindex="1"/>
                 </form:select>
                 </td>
 
@@ -94,5 +94,12 @@
         </table>
     </form:form>
 
+
+     <form action="${post_url}" method="post">
+         id:<input type="text" name="sids" ><br/>
+         id:<input type="text" name="sids" ><br/>
+         id:<input type="text" name="sids" ><br/>
+         <input type="submit"  value="查询" >
+     </form>
 </body>
 </html>
