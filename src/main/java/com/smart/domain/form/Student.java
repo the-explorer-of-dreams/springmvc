@@ -1,5 +1,7 @@
 package com.smart.domain.form;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +18,7 @@ public class Student{
     private String gender;
     private String favoriteNumber;
     private Map<String,String> countries;
+    private MultipartFile file;
 
     //single entity
 //    private Country country;
@@ -28,6 +31,14 @@ public class Student{
 //        this.country = country;
 //    }
 
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     public Integer getId() {
         return id;

@@ -12,11 +12,30 @@
 <head>
     <title>SpringMVC 表单处理</title>
 </head>
+<style>
+    .error {
+        color: #ff0000;
+    }
+
+    .errorStyle {
+        color: #000;
+        background-color: #ffEEEE;
+        border: 3px solid #ff0000;
+        padding: 8px;
+        margin: 16px;
+    }
+</style>
 <body>
      <h2>Student Information</h2>
      <c:url var="post_url"  value="/formHandle/addStudent" />
-    <form:form method="post" action="${post_url}" >
+    <form:form method="post" action="${post_url}" enctype="multipart/form-data">
         <table>
+            <tr>
+                <td>错误:</td>
+
+                <td><form:errors path="*" cssClass="errorStyle" element="div" /></td>
+            </tr>
+
             <tr>
                 <td><form:label path="name" >名字:</form:label></td>
 
@@ -86,6 +105,10 @@
                 <td><form:input path="id" /></td>
             </tr>
 
+            <tr>
+                <td>文件上传:</td>
+                <td><input type="file" name="file" id="file"></td>
+            </tr>
             <tr>
                 <td colspan="2">
                     <input type="submit" value="提交表单" />

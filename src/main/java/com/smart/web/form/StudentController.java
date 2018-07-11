@@ -4,19 +4,38 @@ import com.smart.domain.form.Country;
 import com.smart.domain.form.Student;
 import com.smart.domain.form.StudentVo;
 import org.eclipse.jetty.util.ArrayQueue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 @Controller
 @RequestMapping("/formHandle")
 public class StudentController {
+
+    @Autowired
+    ServletContext context;
+
+    @Autowired
+    @Qualifier("studentValidator")
+    private Validator validator;
+
+    @InitBinder
+    private void initBinder(WebDataBinder binder){
+        binder.setValidator(validator);
+    }
 
     @RequestMapping(value = "/student",method = RequestMethod.GET)
     public ModelAndView student(){
@@ -47,8 +66,23 @@ public class StudentController {
     }
 
     @RequestMapping(value="/addStudent",method = RequestMethod.POST)
-    public ModelAndView addStudent(@ModelAttribute("student") Student student){
+    public ModelAndView addStudent(@ModelAttribute("command") @Validated Student student,BindingResult bindingResult) throws IOException {
         ModelAndView mav =  new ModelAndView();
+
+        if(bindingResult.hasErrors()){
+            mav.setViewName("student");
+            return mav;
+        }else{
+            System.out.println("receiving file content......start");
+            String uploadPath = context.getRealPath("")+ File.separator+"upload"+File.separator;
+            String uploadFileName=uploadPath+student.getFile().getOriginalFilename();
+            File uploadFile = new File(uploadFileName);
+
+            FileCopyUtils.copy(student.getFile().getBytes(),uploadFile);
+            mav.addObject("fileName",student.getFile().getOriginalFilename());
+            System.out.println("receiving file content......end");
+        }
+
         mav.setViewName("studentAddResult");
 
         return mav;

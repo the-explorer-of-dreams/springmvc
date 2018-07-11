@@ -15,6 +15,7 @@
 <body>
      <h2>Student Information commited</h2>
         <table>
+
             <tr>
                 <td>名字:</td>
                 <td>${student.name}</td>
@@ -74,7 +75,10 @@
                 <td>编码:</td>
                 <td>${student.id}</td>
             </tr>
-
+            <tr>
+                <td>上传文件:</td>
+                <td>${fileName}</td>
+            </tr>
             <%--<tr>--%>
                 <%--<td>--%>
                     <%--CNTRY:--%>
