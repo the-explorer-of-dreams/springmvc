@@ -50,6 +50,7 @@ public class StudentController {
         framworks.add("Spring MVC");
         student.setFaveriteFrameworks(framworks);
         student.setFavoriteNumber("3");
+        student.setId(1);
 //        Country SG = new Country(3,"Singapore","SG");
 //        student.setCountry(SG);
 
@@ -143,6 +144,19 @@ public class StudentController {
         countryEntitiesList.add(MY);
         return countryEntitiesList;
     }
+
+    @ModelAttribute("skillsMap")
+    public Map<String, String> getSkillsMap()
+    {
+        Map<String, String> skillsMap = new HashMap<String, String>();
+        skillsMap.put("Hibernate", "Hibernate");
+        skillsMap.put("Spring", "Spring");
+        skillsMap.put("Apache Hadoop", "Apache Hadoop");
+        skillsMap.put("Struts", "Struts");
+        return skillsMap;
+    }
+
+
 
 
 

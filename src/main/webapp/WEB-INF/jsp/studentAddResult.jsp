@@ -70,6 +70,14 @@
                 </td>
             </tr>
 
+            <tr>
+                <td>技能:</td>
+                <td>
+                    <c:forEach items="${student.skills}" var="skill">
+                        <c:out value="${skill}" />
+                    </c:forEach>
+                </td>
+            </tr>
 
             <tr>
                 <td>编码:</td>

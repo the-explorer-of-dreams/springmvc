@@ -17,10 +17,21 @@
     <!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-            p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+            p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="1"/>
+    <!--<bean class="org.springframework.web.servlet.view.XmlViewResolver">-->
+        <!--<property name="location">-->
+            <!--<value>/WEB-INF/views.xml</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">-->
+        <!--<property name="basename" value="props_views" />-->
+    <!--</bean>-->
 
     <mvc:resources mapping="/static/**" location="/static/" />
     <!--<mvc:resources mapping="/static/substatic/*" location="/static/substatic/" />-->
 
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+        p:defaultEncoding="UTF-8" p:maxUploadSizePerFile="102400000"
+    />
 </beans>

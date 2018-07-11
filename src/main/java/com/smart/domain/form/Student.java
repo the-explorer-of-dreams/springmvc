@@ -19,7 +19,15 @@ public class Student{
     private String favoriteNumber;
     private Map<String,String> countries;
     private MultipartFile file;
+    private String[] skills;
 
+    public String[] getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String[] skills) {
+        this.skills = skills;
+    }
     //single entity
 //    private Country country;
 //

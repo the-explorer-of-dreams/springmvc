@@ -101,13 +101,27 @@
             </tr>
 
             <tr>
-                <td><form:label path="id" >编码:</form:label></td>
-                <td><form:input path="id" /></td>
+                <td><form:label path="skills" >技能:</form:label></td>
+                <td>
+                    <form:select path="skills" multiple="true">
+                        <form:options items="${skillsMap}"/>
+                    </form:select>
+                </td>
             </tr>
+
+
+            <tr>
+                <%--<td><form:label path="id" >编码:</form:label></td>--%>
+                <td><form:hidden path="id" /></td>
+            </tr>
+
+
+
+
 
             <tr>
                 <td>文件上传:</td>
-                <td><input type="file" name="file" id="file"></td>
+                <td><input type="file" name="file" id="file" ></td>
             </tr>
             <tr>
                 <td colspan="2">

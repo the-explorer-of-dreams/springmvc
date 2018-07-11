@@ -48,61 +48,61 @@ public class DirectBindingController {
         return mav;
     }
 
-    @ModelAttribute("webFrameworkList")
-    public List<String> framworks(){
-        ArrayList<String> webFrameworkList = new ArrayList<String>();
-        webFrameworkList.add("Spring MVC");
-        webFrameworkList.add("Spring Boot");
-        webFrameworkList.add("Struts 2");
-        webFrameworkList.add("Apache Hadoop");
-        return webFrameworkList;
-    }
-
-
-    @ModelAttribute("numbersList")
-    public List<String> favoriteNumbersList(){
-        ArrayList<String> numbersList = new ArrayList<String>();
-        numbersList.add("1");
-        numbersList.add("2");
-        numbersList.add("3");
-        numbersList.add("4");
-        return numbersList;
-    }
-
-    @ModelAttribute("countriesMap")
-    public Map<String,String> countriesMap(){
-        Map<String,String> countriesMap = new HashMap<String, String>();
-        countriesMap.put("US", "United States");
-        countriesMap.put("CH", "China");
-        countriesMap.put("SG", "Singapore");
-        countriesMap.put("MY", "Malaysia");
-        return countriesMap;
-    }
-
-    @ModelAttribute("countriesList")
-    public List<String>  countriesList(){
-        List<String> countriesList = new ArrayList<String>();
-        countriesList.add("United States");
-        countriesList.add("China");
-        countriesList.add("Singapore");
-        countriesList.add("Malaysia");
-        return countriesList;
-    }
-
-    @ModelAttribute("countryEntitiesList")
-    public List<Country>  countryEntitiesList(){
-        List<Country> countryEntitiesList = new ArrayList<Country>();
-        Country US = new Country(1,"United States","US");
-        Country CH = new Country(2,"China","CH");
-        Country SG = new Country(3,"Singapore","SG");
-        Country MY = new Country(4,"Malaysia","MY");
-
-        countryEntitiesList.add(US);
-        countryEntitiesList.add(CH);
-        countryEntitiesList.add(SG);
-        countryEntitiesList.add(MY);
-        return countryEntitiesList;
-    }
+//    @ModelAttribute("webFrameworkList")
+//    public List<String> framworks(){
+//        ArrayList<String> webFrameworkList = new ArrayList<String>();
+//        webFrameworkList.add("Spring MVC");
+//        webFrameworkList.add("Spring Boot");
+//        webFrameworkList.add("Struts 2");
+//        webFrameworkList.add("Apache Hadoop");
+//        return webFrameworkList;
+//    }
+//
+//
+//    @ModelAttribute("numbersList")
+//    public List<String> favoriteNumbersList(){
+//        ArrayList<String> numbersList = new ArrayList<String>();
+//        numbersList.add("1");
+//        numbersList.add("2");
+//        numbersList.add("3");
+//        numbersList.add("4");
+//        return numbersList;
+//    }
+//
+//    @ModelAttribute("countriesMap")
+//    public Map<String,String> countriesMap(){
+//        Map<String,String> countriesMap = new HashMap<String, String>();
+//        countriesMap.put("US", "United States");
+//        countriesMap.put("CH", "China");
+//        countriesMap.put("SG", "Singapore");
+//        countriesMap.put("MY", "Malaysia");
+//        return countriesMap;
+//    }
+//
+//    @ModelAttribute("countriesList")
+//    public List<String>  countriesList(){
+//        List<String> countriesList = new ArrayList<String>();
+//        countriesList.add("United States");
+//        countriesList.add("China");
+//        countriesList.add("Singapore");
+//        countriesList.add("Malaysia");
+//        return countriesList;
+//    }
+//
+//    @ModelAttribute("countryEntitiesList")
+//    public List<Country>  countryEntitiesList(){
+//        List<Country> countryEntitiesList = new ArrayList<Country>();
+//        Country US = new Country(1,"United States","US");
+//        Country CH = new Country(2,"China","CH");
+//        Country SG = new Country(3,"Singapore","SG");
+//        Country MY = new Country(4,"Malaysia","MY");
+//
+//        countryEntitiesList.add(US);
+//        countryEntitiesList.add(CH);
+//        countryEntitiesList.add(SG);
+//        countryEntitiesList.add(MY);
+//        return countryEntitiesList;
+//    }
 
 
 
